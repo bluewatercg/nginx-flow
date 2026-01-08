@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 47% 6%;
+    --foreground: 210 40% 96%;
+
+    --card: 222 47% 8%;
+    --card-foreground: 210 40% 96%;
+
+    --popover: 222 47% 10%;
+    --popover-foreground: 210 40% 96%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 222 47% 6%;
+
+    --secondary: 222 47% 14%;
+    --secondary-foreground: 210 40% 90%;
+
+    --muted: 222 47% 12%;
+    --muted-foreground: 215 20% 55%;
+
+    --accent: 160 84% 39%;
+    --accent-foreground: 222 47% 6%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 222 47% 16%;
+    --input: 222 47% 14%;
+    --ring: 217 91% 60%;
+
+    --radius: 0.5rem;
+
+    /* Custom tokens for node types */
+    --node-server: 217 91% 60%;
+    --node-location: 160 84% 39%;
+    --node-upstream: 38 92% 50%;
+
+    /* Sidebar */
+    --sidebar-background: 222 47% 7%;
+    --sidebar-foreground: 210 40% 90%;
+    --sidebar-primary: 217 91% 60%;
+    --sidebar-primary-foreground: 222 47% 6%;
+    --sidebar-accent: 222 47% 12%;
+    --sidebar-accent-foreground: 210 40% 96%;
+    --sidebar-border: 222 47% 14%;
+    --sidebar-ring: 217 91% 60%;
+
+    /* Code preview */
+    --code-background: 222 47% 5%;
+    --code-keyword: 280 68% 70%;
+    --code-string: 160 84% 50%;
+    --code-comment: 215 20% 45%;
+    --code-variable: 38 92% 60%;
+
+    /* Canvas */
+    --canvas-background: 222 47% 4%;
+    --canvas-grid: 222 47% 10%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%), hsl(280 68% 60%));
+    --gradient-accent: linear-gradient(135deg, hsl(160 84% 39%), hsl(160 84% 50%));
+
+    /* Shadows */
+    --shadow-node: 0 4px 20px -4px hsl(217 91% 60% / 0.3);
+    --shadow-panel: 0 8px 32px -8px hsl(0 0% 0% / 0.5);
+  }
+
+  .dark {
+    --background: 222 47% 6%;
+    --foreground: 210 40% 96%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer components {
+  .node-handle {
+    @apply w-3 h-3 rounded-full border-2 border-background transition-all duration-200;
+  }
+
+  .node-handle:hover {
+    @apply scale-125;
+  }
+
+  .config-section {
+    @apply p-4 rounded-lg bg-card border border-border;
+  }
+
+  .config-label {
+    @apply text-xs font-medium text-muted-foreground uppercase tracking-wider mb-2;
+  }
+
+  .code-preview {
+    @apply font-mono text-sm leading-relaxed;
+  }
+
+  .code-keyword {
+    color: hsl(var(--code-keyword));
+  }
+
+  .code-string {
+    color: hsl(var(--code-string));
+  }
+
+  .code-comment {
+    color: hsl(var(--code-comment));
+    font-style: italic;
+  }
+
+  .code-variable {
+    color: hsl(var(--code-variable));
+  }
+}
+
+/* React Flow customization */
+.react-flow__background {
+  background-color: hsl(var(--canvas-background)) !important;
+}
+
+.react-flow__minimap {
+  background-color: hsl(var(--card)) !important;
+  border-radius: 0.5rem;
+  border: 1px solid hsl(var(--border));
+}
+
+.react-flow__controls {
+  background-color: hsl(var(--card)) !important;
+  border-radius: 0.5rem;
+  border: 1px solid hsl(var(--border));
+  box-shadow: var(--shadow-panel);
+}
+
+.react-flow__controls-button {
+  background-color: hsl(var(--card)) !important;
+  border-color: hsl(var(--border)) !important;
+  color: hsl(var(--foreground)) !important;
+}
+
+.react-flow__controls-button:hover {
+  background-color: hsl(var(--muted)) !important;
+}
+
+.react-flow__edge-path {
+  stroke-width: 2;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground));
+}

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <style>
+    /* 默认（明亮模式）下的背景色：Nginx 官方绿 */
+    .bg { fill: #009639; }
+    /* 黑暗模式下的背景色：深绿色，不刺眼 */
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #007a2e; }
+    }
+  </style>
+  
+  <rect class="bg" width="256" height="256" rx="64"/>
+  
+  <g fill="none" stroke="white" stroke-width="24" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M64 64 L128 192 L192 64"/>
+  </g>
+  
+  <g fill="white">
+    <circle cx="64" cy="64" r="20"/>
+    <circle cx="128" cy="192" r="20"/>
+    <circle cx="192" cy="64" r="20"/>
+  </g>
+</svg>
